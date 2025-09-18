@@ -1,0 +1,176 @@
+/* Wikipedia-like stylesheet
+   Generated to style a single-page dump of a Wikipedia article.
+   Usage: <link rel="stylesheet" href="wikipedia-style.css"> in the <head> of your saved HTML file.
+
+   This file focuses on the most common elements from a Wikipedia article:
+   - body typography and layout
+   - headings, section anchors, table of contents
+   - infobox styling
+   - images and thumbnails
+   - references and citation lists
+   - tables, lists, blockquotes
+   - responsive rules for small screens
+*/
+
+:root{
+  --content-width: 980px;
+  --max-width: 1180px;
+  --base-font: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --muted:#6a7378;
+  --link:#0645ad;
+  --bg:#ffffff;
+  --accent:#36c;
+}
+
+html,body{height:100%;}
+body{
+  font-family:var(--base-font);
+  line-height:1.45;
+  color:#111;
+  background:var(--bg);
+  margin:0;
+  padding:20px 0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* page container (centered) */
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 18px;
+}
+
+/* content area */
+#content, #mw-content-text, .mw-parser-output{
+  max-width:var(--content-width);
+  margin:0 auto;
+}
+
+/* Title */
+#firstHeading, h1{
+  font-size:28px;
+  font-weight:700;
+  margin:8px 0 12px;
+  line-height:1.15;
+}
+
+/* Headings */
+h2, h3, h4, h5, h6{
+  font-weight:600;
+  margin:18px 0 10px;
+}
+h2{font-size:20px;border-bottom:1px solid #e5e5e5;padding-bottom:6px}
+h3{font-size:17px}
+
+p{margin:0 0 12px}
+
+/* Links */
+a{color:var(--link);text-decoration:underline dotted}
+a:visited{color:#551a8b}
+
+/* Table of contents */
+#toc{
+  border:1px solid #ddd;
+  background:#f8f9fa;
+  padding:8px;
+  font-size:13px;
+  line-height:1.4;
+  max-width:320px;
+}
+#toc ul{margin:6px 0 0;padding-left:18px}
+#toc li{margin:3px 0}
+
+/* Infobox (right column on Wikipedia) */
+.infobox, table.infobox{
+  float:right;
+  width:300px;
+  margin:0 0 10px 18px;
+  border:1px solid #a7d7ff;
+  background:linear-gradient(#f8fbff,#fff);
+  font-size:14px;
+  line-height:1.25;
+}
+.infobox caption{font-weight:700;margin:6px 0;padding:6px;background:transparent}
+.infobox th{background:transparent;color:#222;font-weight:700;padding:6px}
+.infobox td{padding:6px;border-top:1px solid rgba(0,0,0,0.04)}
+
+/* Images and thumbnails */
+.thumb, .thumbinner, .infobox img, .image{
+  display:block;
+  max-width:100%;
+}
+.thumb{
+  border:1px solid #f0f0f0;
+  background:#fff;
+  padding:6px;
+  margin:6px 0;
+}
+.thumbcaption{font-size:12px;color:var(--muted);text-align:center;padding-top:6px}
+
+/* Figures placed inline */
+.figure-left{float:left;margin:0 12px 12px 0;max-width:45%}
+.figure-right{float:right;margin:0 0 12px 12px;max-width:45%}
+
+/* Clear floats after content to avoid layout issues */
+.clearfix::after{content:"";display:block;clear:both}
+
+/* References */
+.reflist, ol.references{font-size:13px;margin:12px 0;padding-left:20px}
+.reflist li{margin-bottom:8px}
+.citation{color:var(--muted)}
+
+/* Citations inline */
+.reference{font-size:90%;vertical-align:super}
+
+/* Tables */
+.table, table{border-collapse:collapse;width:100%;margin:8px 0}
+table th, table td{border:1px solid #dfe2e5;padding:8px;text-align:left;font-size:14px}
+
+/* Lists */
+ul, ol{margin:0 0 12px 28px}
+
+/* Blockquote */
+blockquote{border-left:4px solid #ddd;padding:8px 16px;margin:8px 0;background:#f9f9f9}
+
+/* Code and pre */
+code{font-family:var(--mono-font);font-size:90%;background:#f5f5f5;padding:2px 4px;border-radius:3px}
+pre{background:#f6f8fa;padding:10px;border-radius:4px;overflow:auto}
+
+/* Navigation and header hints */
+#mw-head, .page-header{margin-bottom:12px}
+.siteNotice, .hatnote{background:#fff8e1;border-left:4px solid #ffd54f;padding:8px;margin:8px 0;font-size:13px}
+
+/* Small print */
+.small{font-size:85%;color:var(--muted)}
+
+/* Footer categories */
+#mw-normal-catlinks{margin-top:16px;border-top:1px solid #eee;padding-top:8px;font-size:13px}
+
+/* Accessibility helpers */
+.sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+
+/* Responsive tweaks */
+@media (max-width:900px){
+  .infobox, table.infobox{float:none;margin:0 0 12px;width:100%}
+  #content, #mw-content-text, .mw-parser-output{padding:0 12px}
+  :root{--content-width:100%}
+  #toc{max-width:100%}
+}
+
+/* Small visual polish */
+hr{border:0;border-top:1px solid #eee;margin:18px 0}
+
+/* Reduce link underline thickness on hover */
+a:hover{text-decoration:underline}
+
+/* Make tables of contents links more obvious */
+#toc a{color:var(--link);text-decoration:none}
+#toc a:hover{text-decoration:underline}
+
+/* Print friendly */
+@media print{
+  body{background:#fff;padding:0}
+  .infobox{float:none}
+}
